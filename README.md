@@ -8,7 +8,6 @@ LocalCap is an Apple application written in Swift that handles the video recordi
 
 ## Planned Features:
 - **Intrinsics calculation** The ability to calculate the intrinsics of your device, if it's not currently in OpenCaps supported devices list.
-- 
 ## Installation
 
 To get started with LocalCap, follow these steps:
