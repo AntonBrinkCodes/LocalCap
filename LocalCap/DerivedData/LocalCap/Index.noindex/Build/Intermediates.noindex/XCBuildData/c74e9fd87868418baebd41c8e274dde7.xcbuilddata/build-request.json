@@ -1,0 +1,73 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "fe0fa530eb9e436c4d1cc2e6b4f53622daf368e3560380a2010030e71c977085"
+    },
+    {
+      "guid" : "fe0fa530eb9e436c4d1cc2e6b4f5362269a68dafce0db4bdd3287fffe0e30a8c"
+    },
+    {
+      "guid" : "fe0fa530eb9e436c4d1cc2e6b4f53622cc98122fcbaa5cfe2bbb39fc1cfc2f3b"
+    }
+  ],
+  "containerPath" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "undefined_arch",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : true,
+      "platform" : "iphoneos",
+      "sdk" : "iphoneos17.5",
+      "sdkVariant" : "iphoneos",
+      "supportedArchitectures" : [
+        "armv4t",
+        "armv5",
+        "armv6",
+        "armv7",
+        "armv7f",
+        "armv7s",
+        "armv7k",
+        "arm64",
+        "arm64e"
+      ],
+      "targetArchitecture" : "undefined_arch"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Products",
+      "derivedDataPath" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/PrecompiledHeaders",
+      "indexRegularBuildIntermediatesPath" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex",
+      "indexRegularBuildProductsPath" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Products",
+      "pchPath" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "utility",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

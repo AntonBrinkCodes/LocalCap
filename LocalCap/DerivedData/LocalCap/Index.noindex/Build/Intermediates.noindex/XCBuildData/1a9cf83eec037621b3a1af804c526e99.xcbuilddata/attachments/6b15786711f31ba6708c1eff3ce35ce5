@@ -1,0 +1,12 @@
+{
+  "" : {
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphonesimulator/LocalCapTests.build/Objects-normal/x86_64/LocalCapTests-master.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphonesimulator/LocalCapTests.build/Objects-normal/x86_64/LocalCapTests-master.dia",
+    "emit-module-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphonesimulator/LocalCapTests.build/Objects-normal/x86_64/LocalCapTests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphonesimulator/LocalCapTests.build/Objects-normal/x86_64/LocalCapTests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphonesimulator/LocalCapTests.build/Objects-normal/x86_64/LocalCapTests-master.swiftdeps"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCapTests/LocalCapTests.swift" : {
+
+  }
+}

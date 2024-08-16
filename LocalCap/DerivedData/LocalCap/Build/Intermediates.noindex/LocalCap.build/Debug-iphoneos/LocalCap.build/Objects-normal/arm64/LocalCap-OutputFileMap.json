@@ -1,0 +1,88 @@
+{
+  "" : {
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/LocalCap-master.dia",
+    "emit-module-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/LocalCap-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/LocalCap-master-emit-module.dia",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/LocalCap-master.swiftdeps"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/AppDelegate.swift" : {
+    "const-values" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/AppDelegate.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/AppDelegate.dia",
+    "index-unit-output-path" : "/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/AppDelegate.o",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/AppDelegate~partial.swiftmodule"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/Camera/cameraConfig.swift" : {
+    "const-values" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/cameraConfig.swiftconstvalues",
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/cameraConfig.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/cameraConfig.dia",
+    "index-unit-output-path" : "/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/cameraConfig.o",
+    "llvm-bc" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/cameraConfig.bc",
+    "object" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/cameraConfig.o",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/cameraConfig.swiftdeps",
+    "swiftmodule" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/cameraConfig~partial.swiftmodule"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/PreviewView.swift" : {
+    "const-values" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/PreviewView.swiftconstvalues",
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/PreviewView.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/PreviewView.dia",
+    "index-unit-output-path" : "/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/PreviewView.o",
+    "llvm-bc" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/PreviewView.bc",
+    "object" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/PreviewView.o",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/PreviewView.swiftdeps",
+    "swiftmodule" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/PreviewView~partial.swiftmodule"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/SceneDelegate.swift" : {
+    "const-values" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/SceneDelegate.swiftconstvalues",
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/SceneDelegate.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/SceneDelegate.dia",
+    "index-unit-output-path" : "/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/SceneDelegate.o",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/SceneDelegate.swiftdeps",
+    "swiftmodule" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/SceneDelegate~partial.swiftmodule"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/ViewController.swift" : {
+    "const-values" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewController.swiftconstvalues",
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewController.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewController.dia",
+    "index-unit-output-path" : "/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewController.o",
+    "llvm-bc" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewController.bc",
+    "object" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewController.o",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewController.swiftdeps",
+    "swiftmodule" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewController~partial.swiftmodule"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/ViewControllerWeb.swift" : {
+    "const-values" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewControllerWeb.swiftconstvalues",
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewControllerWeb.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewControllerWeb.dia",
+    "index-unit-output-path" : "/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewControllerWeb.o",
+    "llvm-bc" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewControllerWeb.bc",
+    "object" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewControllerWeb.o",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewControllerWeb.swiftdeps",
+    "swiftmodule" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/ViewControllerWeb~partial.swiftmodule"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/Websocket/Websocket.swift" : {
+    "const-values" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/Websocket.swiftconstvalues",
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/Websocket.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/Websocket.dia",
+    "index-unit-output-path" : "/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/Websocket.o",
+    "llvm-bc" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/Websocket.bc",
+    "object" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/Websocket.o",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/Websocket.swiftdeps",
+    "swiftmodule" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/Websocket~partial.swiftmodule"
+  }
+}

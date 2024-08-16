@@ -1,0 +1,13 @@
+Target dependency graph (8 targets)
+Target 'LocalCapUITests' in project 'LocalCap' (no dependencies)
+Target 'LocalCapUITests' in project 'LocalCap'
+➜ Explicit dependency on target 'LocalCap' in project 'LocalCap'
+Target 'LocalCapUITests' in project 'LocalCap'
+➜ Explicit dependency on target 'LocalCap' in project 'LocalCap'
+Target 'LocalCapTests' in project 'LocalCap' (no dependencies)
+Target 'LocalCapTests' in project 'LocalCap'
+➜ Explicit dependency on target 'LocalCap' in project 'LocalCap'
+Target 'LocalCapTests' in project 'LocalCap'
+➜ Explicit dependency on target 'LocalCap' in project 'LocalCap'
+Target 'LocalCap' in project 'LocalCap' (no dependencies)
+Target 'LocalCap' in project 'LocalCap' (no dependencies)

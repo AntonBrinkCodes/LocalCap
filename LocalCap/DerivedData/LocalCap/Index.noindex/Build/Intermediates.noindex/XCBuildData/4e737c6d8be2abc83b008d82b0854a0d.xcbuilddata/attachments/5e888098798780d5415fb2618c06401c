@@ -1,0 +1,33 @@
+{
+  "" : {
+    "dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/LocalCap-master.d",
+    "diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/LocalCap-master.dia",
+    "emit-module-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/LocalCap-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/LocalCap-master-emit-module.dia",
+    "swift-dependencies" : "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/Objects-normal/arm64/LocalCap-master.swiftdeps"
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/DerivedData/LocalCap/Index.noindex/Build/Intermediates.noindex/LocalCap.build/Debug-iphoneos/LocalCap.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/AppDelegate.swift" : {
+
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/Camera/cameraConfig.swift" : {
+
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/PreviewView.swift" : {
+
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/SceneDelegate.swift" : {
+
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/ViewController.swift" : {
+
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/ViewControllerWeb.swift" : {
+
+  },
+  "/Users/moveability-lab/Documents/GitHub/LocalCap/LocalCap/LocalCap/Websocket/Websocket.swift" : {
+
+  }
+}
