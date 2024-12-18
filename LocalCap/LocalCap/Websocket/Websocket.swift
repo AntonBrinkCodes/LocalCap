@@ -10,10 +10,12 @@ import Foundation
 class WebSocketClient {
     private var webSocketTask: URLSessionWebSocketTask?
     private let url: URL
+    private let sessionID: String
     weak var delegate: WebSocketClientDelegate?
     
-    init(url: URL) {
+    init(url: URL, sessionID: String) {
         self.url = url
+        self.sessionID = sessionID
     }
     
     // Connect to the WebSocket server
@@ -38,9 +40,12 @@ class WebSocketClient {
     // Example of a custom struct to represent JSON data
     struct Message: Codable {
         let command: String
-        let content: String
-        let session_id: String
+        let content: String?
+        let session: String
         let trialType: String
+        let trialName: String?
+        let trialId: String?
+        let camera_idx: Int?
     }
 
     func sendMessage(_ message: Message) {
@@ -79,7 +84,7 @@ class WebSocketClient {
     
     
     // Send video as json with descriptive information
-    func sendVideoFile(_ data: Data, trialType: String) {
+    func sendVideoFile(_ data: Data, trialType: String, trialName: String?, trialId: String?) {
         print("... sending video file with json")
             do {
                 // Load the video file
@@ -90,8 +95,9 @@ class WebSocketClient {
                 // Create JSON metadata
                 let metadata: [String: Any] = [
                     "type": "video",
-                    "name": trialType,
-                    "size": base64String.count, // size in bytes
+                    "name": trialName ?? trialType,
+                    "trialId": trialId ?? trialType,
+                    "size": base64String.count, // size in bytes,
                     "description": "This is an example video file."
                 ]
                 
@@ -99,6 +105,7 @@ class WebSocketClient {
                 let message: [String: Any] = [
                     "command": "save_video",
                     "metadata": metadata,
+                    "session": sessionID,
                     "videoData": base64String
                 ]
                 

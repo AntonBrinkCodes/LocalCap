@@ -26,10 +26,16 @@ class ViewControllerWeb: UIViewController, WebSocketClientDelegate {
         }
     
     var BASEURL: String?
+    var sessionID: String?
+    var ipPort: String?
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var videoOutput: AVCaptureMovieFileOutput!
     var trialType: String?
+    var trialName: String?
+    var trialId: String?
+    var cameraidx: Int?
+    
     
     private var webSocketClient: WebSocketClient!
     let clientType = "mobile"
@@ -44,18 +50,40 @@ class ViewControllerWeb: UIViewController, WebSocketClientDelegate {
             // To lock rotation
             (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .portrait
             
-            if let receivedString = BASEURL {
-                print("IN SECOND VIEWCONTROLLER")
-                print(receivedString) // or use it in your UI
-                // Connect to the WebSocket server
-                if let url = URL(string: receivedString+"?client_type=\(clientType)") { // From scanned QR Code
-                        webSocketClient = WebSocketClient(url: url)
-                        webSocketClient.delegate = self
-                        let initialMessage = WebSocketClient.Message(command: "mobile_connected", content: UIDevice.current.modelIdentifier,
-                                                                     session_id: extractUUID(from: url.absoluteString), trialType: "")
-                    webSocketClient.connect(initialMessage: initialMessage)
-                    }
+        if let receivedString = BASEURL {
+            print("IN SECOND VIEWCONTROLLER")
+            print(receivedString) // or use it in your UI
+            let parts = receivedString.components(separatedBy: "/")
+            self.ipPort = parts.first
+            self.sessionID = parts.last
+            print("Session is: \(sessionID ?? "None")")
+            print("IpPort is: \(ipPort ?? "NONE")")
+            // Connect to the WebSocket server
+            if let sessionID = sessionID, let ipPort = ipPort {
+                guard let url = URL(string: "ws://\(ipPort)/ws?client_type=\(clientType)&link_to_web=\(sessionID)") else {
+                    print("Error: Invalid WebSocket URL")
+                    return
                 }
+                
+                webSocketClient = WebSocketClient(url: url, sessionID: sessionID)
+                webSocketClient.delegate = self
+                
+                let initialMessage = WebSocketClient.Message(
+                    command: "mobile_connected",
+                    content: UIDevice.current.modelIdentifier,
+                    session: extractUUID(from: sessionID),
+                    trialType: "",
+                    trialName: "",
+                    trialId: "",
+                    camera_idx: -1
+                )
+                
+                webSocketClient.connect(initialMessage: initialMessage)
+            } else {
+                print("Error: sessionID or ipPort is nil")
+            }
+
+        }
             
             //Setup camera
             configureCaptureSession()
@@ -139,7 +167,14 @@ class ViewControllerWeb: UIViewController, WebSocketClientDelegate {
                         self.trialType = decodedMessage.trialType
                         self.startRecording()
                     } else if decodedMessage.command == "stop" {
+                        self.trialType = decodedMessage.trialType
+                        self.trialName = decodedMessage.trialName
+                        self.trialId = decodedMessage.trialId
                         self.stopRecording()
+                    }else if decodedMessage.command == "new_camera_idx" {
+                        print("Changing camera idx")
+                        self.cameraidx = decodedMessage.camera_idx
+                        print("Camera idx is now: \(self.cameraidx)")
                     }
                 } catch {
                     print("Failed to decode JSON: \(error)")
@@ -150,12 +185,12 @@ class ViewControllerWeb: UIViewController, WebSocketClientDelegate {
     }
     
     // delegate method to send video to websocket
-    func sendVideoToWebSocket(fileURL: URL, trialType: String? = "dynamic") {
+    func sendVideoToWebSocket(fileURL: URL, trialType: String? = "dynamic", trialName: String?, trialId: String?) {
         let trialType = trialType ?? "dynamic"
         do {
             let videoData = try Data(contentsOf: fileURL)
             print("... Send Video to websocket :)))")
-            webSocketClient?.sendVideoFile(videoData, trialType: trialType)
+            webSocketClient?.sendVideoFile(videoData, trialType: trialType, trialName: trialName, trialId: trialId)
         } catch {
             print("Error loading video data: \(error)")
         }
@@ -175,17 +210,121 @@ class ViewControllerWeb: UIViewController, WebSocketClientDelegate {
             // Reset rotation restriction when leaving this view controller
             //(UIApplication.shared.delegate as! AppDelegate).restrictRotation = .all
         }
+    
+    
+    func uploadLargeVideo(fileURL: URL, trialType: String, trialName: String, trialId: String, sessionID: String, cameraidx: Int) {
+        print(self.ipPort)
+        if let ipPort = self.ipPort {
+            print(ipPort)
+            let urlString = "http://\(ipPort)/upload/"
+            
+            if let serverURL = URL(string: urlString) {
+                    print("Server URL: \(serverURL)")
+                            
+            var request = URLRequest(url: serverURL)
+            request.httpMethod = "POST"
+            
+            let boundary = UUID().uuidString
+            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            
+            var body = Data()
+            let filename = fileURL.lastPathComponent
+            let mimeType = "video/mov"
+            
+            // Add sessionID
+            body.append("--\(boundary)\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"session_uuid\"\r\n\r\n".data(using: .utf8)!)
+            body.append("\(sessionID)\r\n".data(using: .utf8)!)
+            
+            // Add trialType
+            body.append("--\(boundary)\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"trial_type\"\r\n\r\n".data(using: .utf8)!)
+            body.append("\(trialType)\r\n".data(using: .utf8)!)
+            
+            // Add trialName
+            body.append("--\(boundary)\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"trial_name\"\r\n\r\n".data(using: .utf8)!)
+            body.append("\(trialName)\r\n".data(using: .utf8)!)
+            
+            // Add trialId
+            print("sending with trialId: \(trialId)")
+            body.append("--\(boundary)\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"trial_uuid\"\r\n\r\n".data(using: .utf8)!)
+            body.append("\(trialId)\r\n".data(using: .utf8)!)
+            
+            // Add cameraIdx
+            print("camera idx is: \(cameraidx)")
+            body.append("--\(boundary)\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"cam_index\"\r\n\r\n".data(using: .utf8)!)
+            body.append("\(cameraidx)\r\n".data(using: .utf8)!)
+                
+            // Add the video file
+            if let videoData = try? Data(contentsOf: fileURL) {
+                body.append("--\(boundary)\r\n".data(using: .utf8)!)
+                body.append("Content-Disposition: form-data; name=\"file\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
+                body.append("Content-Type: \(mimeType)\r\n\r\n".data(using: .utf8)!)
+                body.append(videoData)
+                body.append("\r\n".data(using: .utf8)!)
+            }
+            
+            body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+            request.httpBody = body
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error uploading video: \(error.localizedDescription)")
+                    return
+                }
+                
+                if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                    print("Video uploaded successfully.")
+                } else {
+                    print("Failed to upload video.")
+                }
+            }
+            task.resume()
+            } else {
+                print("Error: URL(string:) returned nil for \(urlString)")
+            } // Replace with your server URL
+        }
+
+            
+    }
    
 }
 
 // MARK: - AVCaptureFileOutputRecordingDelegate
 extension ViewControllerWeb: AVCaptureFileOutputRecordingDelegate {
-    func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: (any Error)?) {
-        self.sendVideoToWebSocket(fileURL: outputFileURL, trialType: self.trialType)
+    func fileOutput(
+        _ output: AVCaptureFileOutput,
+        didFinishRecordingTo outputFileURL: URL,
+        from connections: [AVCaptureConnection],
+        error: (any Error)?
+    ) {
+        do {
+            let fileSize = try FileManager.default.attributesOfItem(atPath: outputFileURL.path)[.size] as? Int64 ?? 0
+            let maxFileSize: Int64 = 10 * 1024 * 1024 // 10 MB in bytes
+            
+            if fileSize > 0 {//test. Should be maxFileSize instead of 0 {
+                print("File is larger than 10 MB. Uploading via URLSession.")
+                self.uploadLargeVideo(
+                    fileURL: outputFileURL,
+                    trialType: self.trialType ?? "dynamic",
+                    trialName: self.trialName ?? "defaultTrialName",
+                    trialId: self.trialId ?? "defaultTrialId",
+                    sessionID: self.sessionID ?? "defaultsessionID",
+                    cameraidx: self.cameraidx ?? -1
+                )
+            } else {
+                print("File is smaller than 10 MB. Sending via WebSocket.")
+                self.sendVideoToWebSocket(fileURL: outputFileURL, trialType: self.trialType, trialName: self.trialName, trialId: self.trialId)
+            }
+        } catch {
+            print("Failed to determine file size: \(error.localizedDescription)")
+        }
     }
-    
-    
 }
+
 
 // MARK: - Helper function to get session_id from BASEURL
 func extractUUID(from urlString: String) -> String {
@@ -206,3 +345,5 @@ func extractUUID(from urlString: String) -> String {
     // Return empty string if no UUID found
     return ""
 }
+
+

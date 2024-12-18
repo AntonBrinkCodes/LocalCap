@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>T6YN4M6UC5.KTH.LocalCap</string>
+	<string>T6YN4M6UC5.com.AntonBrink.localCap</string>
 	<key>com.apple.developer.team-identifier</key>
 	<string>T6YN4M6UC5</string>
 	<key>get-task-allow</key>

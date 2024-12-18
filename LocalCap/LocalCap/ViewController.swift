@@ -73,7 +73,9 @@ class ViewController: UIViewController {
         print("commiting to configuration")
         captureSession.commitConfiguration()
         
-        captureSession.startRunning()
+        DispatchQueue.global(qos: .userInitiated).async {
+               self.captureSession.startRunning()
+           }
         //print(captureDeviceInput.device.activeFormat)
     }
     
