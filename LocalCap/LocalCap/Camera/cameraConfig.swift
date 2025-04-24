@@ -24,20 +24,20 @@ import AVFoundation
  frame rate and resolution. It also configures auto-focus settings and ensures the capture
  session is prepared for video capture.
  */
-public func configureSessionInput(captureSession: AVCaptureSession, targetFrameRate: Int = 240, targetWidth: Int = 1280, targetHeight: Int = 720) {
+public func configureSessionInput(captureSession: AVCaptureSession, targetFrameRate: Int = 240, targetWidth: Int = 1280, targetHeight: Int = 720) -> Double{
     captureSession.beginConfiguration()
     
     // Get the default back camera
     guard let currentDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
         print("No back camera available.")
-        return
+        return 0
     }
     let formatToSet = configureCameraForHighestFrameRate(device: currentDevice, targetWidth: 1280, targetHeight: 720)
     
     // Create an input for the capture session
     guard let captureDeviceInput = try? AVCaptureDeviceInput(device: currentDevice) else {
         print("Unable to create AVCaptureDeviceInput.")
-        return
+        return 0
     }
     
     print(captureDeviceInput.device.activeFormat)
@@ -94,6 +94,7 @@ public func configureSessionInput(captureSession: AVCaptureSession, targetFrameR
     } catch {
         print("Error setting frame rate: \(error)")
     }
+    return currentDevice.activeVideoMinFrameDuration.seconds
 }
 
 /// Configures the video output for a given capture session.

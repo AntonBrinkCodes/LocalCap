@@ -12,10 +12,17 @@ class ViewController: UIViewController {
     var QROutput: AVCaptureMetadataOutput!
     var BASEURL: String!
 
-    @IBOutlet weak var picker: UIPickerView!
-    var pickerData: [Int] = [Int]()
+    var currentFrameRate: Double? {
+        didSet{
+            let frameRate = 1/self.currentFrameRate!
+            print("setting frame rate to \(1 / self.currentFrameRate!)")
+        DispatchQueue.main.async {
+            self.mylabel.text = "Framerate is: \(frameRate)"
+            //self.mylabel.sizeToFit()
+        }
+    }}
+    @IBOutlet weak var mylabel: UILabel!
 
-   
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         print("Supported Interface Orientations called")
         return .portrait
@@ -43,9 +50,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         print("running viewDidLoad")
         super.viewDidLoad()
+        mylabel?.text = "0.0"
         configureCaptureSession()
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         view.layer.addSublayer(previewLayer)
+        view.addSubview(mylabel)
+        view.bringSubviewToFront(mylabel)
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         previewLayer.frame = view.layer.frame
         
@@ -61,8 +71,11 @@ class ViewController: UIViewController {
     private func configureCaptureSession() {
         captureSession = AVCaptureSession()
         // Configure input
-        configureSessionInput(captureSession: captureSession)
+        self.currentFrameRate = configureSessionInput(captureSession: captureSession)
         
+        /*DispatchQueue.main.async {
+            self.mylabel?.text = String(currentFrameRate)
+        }*/
         // Set QR code output
         print("setting QR output?")
         QROutput = AVCaptureMetadataOutput()
