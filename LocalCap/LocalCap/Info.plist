@@ -8,15 +8,13 @@
 		<dict>
 			<key>130.229.135.163</key>
 			<dict>
-				<key>NSIncludesSubDomains</key>
-				<true/>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubDomains</key>
 				<true/>
 			</dict>
 		</dict>
 	</dict>
-	<key>CFBundleIdentifier</key>
-	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

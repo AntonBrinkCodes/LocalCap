@@ -111,6 +111,7 @@ class ViewControllerWeb: UIViewController, WebSocketClientDelegate {
             // Present the alert
             self.present(alert, animated: true, completion:nil)
     }
+    
     private func configureCaptureSession(){
         captureSession = AVCaptureSession()
         configureSessionInput(captureSession: captureSession)
@@ -129,6 +130,7 @@ class ViewControllerWeb: UIViewController, WebSocketClientDelegate {
         previewLayer.frame = view.layer.frame
         
         videoOutput = AVCaptureMovieFileOutput()
+        
         configureVideoOutput(captureSession: captureSession, videoOutput: videoOutput)
         
     }
@@ -305,7 +307,7 @@ extension ViewControllerWeb: AVCaptureFileOutputRecordingDelegate {
             let fileSize = try FileManager.default.attributesOfItem(atPath: outputFileURL.path)[.size] as? Int64 ?? 0
             let maxFileSize: Int64 = 10 * 1024 * 1024 // 10 MB in bytes
             
-            if fileSize > 0 {//test. Should be maxFileSize instead of 0 {
+            if fileSize > 0 {//test. Should be maxFileSize instead of 0 but this works so why change it? {
                 print("File is larger than 10 MB. Uploading via URLSession.")
                 self.uploadLargeVideo(
                     fileURL: outputFileURL,

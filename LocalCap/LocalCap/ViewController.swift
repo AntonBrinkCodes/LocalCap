@@ -12,8 +12,9 @@ class ViewController: UIViewController {
     var QROutput: AVCaptureMetadataOutput!
     var BASEURL: String!
 
-    var button: UIButton!
-    
+    @IBOutlet weak var picker: UIPickerView!
+    var pickerData: [Int] = [Int]()
+
    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         print("Supported Interface Orientations called")

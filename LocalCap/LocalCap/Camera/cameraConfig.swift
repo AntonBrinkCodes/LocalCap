@@ -8,6 +8,9 @@ import OSLog
 import AVFoundation
 
 
+
+
+
 /**
  Configures the given capture session with specified frame rate and resolution.
 
@@ -21,7 +24,7 @@ import AVFoundation
  frame rate and resolution. It also configures auto-focus settings and ensures the capture
  session is prepared for video capture.
  */
-public func configureSessionInput(captureSession: AVCaptureSession, targetFrameRate: Int = 60, targetWidth: Int = 1280, targetHeight: Int = 720) {
+public func configureSessionInput(captureSession: AVCaptureSession, targetFrameRate: Int = 240, targetWidth: Int = 1280, targetHeight: Int = 720) {
     captureSession.beginConfiguration()
     
     // Get the default back camera
@@ -29,6 +32,7 @@ public func configureSessionInput(captureSession: AVCaptureSession, targetFrameR
         print("No back camera available.")
         return
     }
+    let formatToSet = configureCameraForHighestFrameRate(device: currentDevice, targetWidth: 1280, targetHeight: 720)
     
     // Create an input for the capture session
     guard let captureDeviceInput = try? AVCaptureDeviceInput(device: currentDevice) else {
@@ -37,12 +41,12 @@ public func configureSessionInput(captureSession: AVCaptureSession, targetFrameR
     }
     
     print(captureDeviceInput.device.activeFormat)
-    
     // Configure smooth auto-focus
     if currentDevice.isSmoothAutoFocusSupported {
         do {
             try currentDevice.lockForConfiguration()
-            currentDevice.isSmoothAutoFocusEnabled = false
+            currentDevice.focusMode = .continuousAutoFocus
+           currentDevice.setFocusModeLocked(lensPosition: 0.8) //This is what they set it to in https://github.com/stanfordnmbl/opencap-iphone/blob/main/MobileCap/CameraController.swift
             currentDevice.unlockForConfiguration()
         } catch {
             print("Error changing device smooth autofocus: \(error)")
@@ -50,7 +54,7 @@ public func configureSessionInput(captureSession: AVCaptureSession, targetFrameR
     }
 
     // Find a suitable format that matches the desired width, height, and frame rate
-    var formatToSet: AVCaptureDevice.Format = currentDevice.activeFormat
+   /* var formatToSet: AVCaptureDevice.Format = currentDevice.activeFormat
     for format in currentDevice.formats.reversed() {
         let ranges = format.videoSupportedFrameRateRanges
         guard let frameRates = ranges.first else { continue }
@@ -63,7 +67,7 @@ public func configureSessionInput(captureSession: AVCaptureSession, targetFrameR
             formatToSet = format
             break
         }
-    }
+    }*/
     
     // Add the input to the capture session
     captureSession.addInput(captureDeviceInput)
@@ -71,17 +75,22 @@ public func configureSessionInput(captureSession: AVCaptureSession, targetFrameR
     // Change to the desired format and frame rate
     do {
         try captureDeviceInput.device.lockForConfiguration()
-        captureDeviceInput.device.activeFormat = formatToSet
-        
-        let timescale = CMTimeScale(targetFrameRate)
-        if currentDevice.activeFormat.videoSupportedFrameRateRanges[0].maxFrameRate >= Double(targetFrameRate) {
-            currentDevice.activeVideoMinFrameDuration = CMTime(value: 1, timescale: timescale)
-            currentDevice.activeVideoMaxFrameDuration = CMTime(value: 1, timescale: timescale)
-            print("Configured frame rate: \(timescale)")
+        if let formatToSet = formatToSet {
+            captureDeviceInput.device.activeFormat = formatToSet
+            
+            let timescale = CMTimeScale(targetFrameRate)
+            if currentDevice.activeFormat.videoSupportedFrameRateRanges[0].maxFrameRate >= Double(targetFrameRate) {
+                currentDevice.activeVideoMinFrameDuration = CMTime(value: 1, timescale: timescale)
+                currentDevice.activeVideoMaxFrameDuration = CMTime(value: 1, timescale: timescale)
+                print("Configured frame rate: \(timescale)")
+            } else {
+                print("Selected format does not support the desired frame rate of \(targetFrameRate) FPS")
+                
+            }
+            currentDevice.unlockForConfiguration()
         } else {
-            print("Selected format does not support the desired frame rate of \(targetFrameRate) FPS")
+            print("formatToSet might be nil! Could not find framerate. \(formatToSet)")
         }
-        currentDevice.unlockForConfiguration()
     } catch {
         print("Error setting frame rate: \(error)")
     }
@@ -108,6 +117,62 @@ public func configureVideoOutput(captureSession: AVCaptureSession, videoOutput: 
                 return
             }
 }
+
+func configureCameraForHighestFrameRate(device: AVCaptureDevice, targetWidth: Int, targetHeight: Int)-> AVCaptureDevice.Format? {
+            
+            var bestFormat: AVCaptureDevice.Format?
+            var bestFrameRateRange: AVFrameRateRange?
+
+
+            for format in device.formats {
+                for range in format.videoSupportedFrameRateRanges {
+                    if (range.maxFrameRate > bestFrameRateRange?.maxFrameRate ?? 0) && format.formatDescription.dimensions.width == targetWidth &&
+                       format.formatDescription.dimensions.height == targetHeight {
+                        print(format)
+                        bestFormat = format
+                        bestFrameRateRange = range
+                    }
+                }
+            }
+           // self.bestFormat = bestFormat
+            print("best format is: \(bestFormat)")
+            print("best frame rate is  \(bestFrameRateRange)")
+            if let bestFormat = bestFormat,
+               let bestFrameRateRange = bestFrameRateRange {
+                do {
+                    try device.lockForConfiguration()
+                    
+                    // Set the device's active format.
+                    device.activeFormat = bestFormat
+                    device.activeVideoMaxFrameDuration = bestFrameRateRange.minFrameDuration
+                    device.activeVideoMinFrameDuration = bestFrameRateRange.minFrameDuration
+                    device.unlockForConfiguration()
+                } catch {
+                    print("Can't change the framerate")
+                    // Handle error.
+                }
+            }
+    return bestFormat
+        }
+
+public func setFrameRate(device: AVCaptureDevice, framerate: AVFrameRateRange)  {
+     do {
+         try device.lockForConfiguration()
+         
+         // Set the device's active format.
+         print("Format before:")
+         print(device.activeFormat)
+         device.activeVideoMaxFrameDuration = framerate.minFrameDuration
+         device.activeVideoMinFrameDuration = framerate.minFrameDuration
+         device.unlockForConfiguration()
+         print("Format after:")
+         print(device.activeFormat)
+     } catch {
+         print("Can't change the framerate")
+         // Handle error.
+     }
+ }
+
 
 //public func configureQROutput(captureSession: AVCaptureSession, qrOutput: AVCaptureMetadataOutput){
     
